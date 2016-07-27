@@ -9,16 +9,16 @@
 /* Begin PBXBuildFile section */
 		3D7D231F1D40EF3D0002D78D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D231E1D40EF3D0002D78D /* main.m */; };
 		3D7D23221D40EF3D0002D78D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23211D40EF3D0002D78D /* AppDelegate.m */; };
-		3D7D23251D40EF3D0002D78D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23241D40EF3D0002D78D /* ViewController.m */; };
 		3D7D23281D40EF3D0002D78D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D23261D40EF3D0002D78D /* Main.storyboard */; };
 		3D7D232A1D40EF3D0002D78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D23291D40EF3D0002D78D /* Assets.xcassets */; };
 		3D7D232D1D40EF3D0002D78D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D7D232B1D40EF3D0002D78D /* LaunchScreen.storyboard */; };
 		3D7D23381D40EF3D0002D78D /* MBProgressHUD_______Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23371D40EF3D0002D78D /* MBProgressHUD_______Tests.m */; };
 		3D7D23431D40EF3D0002D78D /* MBProgressHUD_______UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23421D40EF3D0002D78D /* MBProgressHUD_______UITests.m */; };
-		3D7D235F1D41116E0002D78D /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D235E1D41116E0002D78D /* UIViewController+MBProgressHUD.m */; };
-		3D7D23621D4111840002D78D /* NSObject+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23611D4111840002D78D /* NSObject+MBProgressHUD.m */; };
-		3D7D23651D41119A0002D78D /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23641D41119A0002D78D /* MBProgressHUD+Category.m */; };
-		3D7D23681D45D9F80002D78D /* TestNSOjectHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23671D45D9F80002D78D /* TestNSOjectHUD.m */; };
+		3D7D23C41D48960F0002D78D /* MBProgressHUD+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23BD1D48960F0002D78D /* MBProgressHUD+Category.m */; };
+		3D7D23C51D48960F0002D78D /* NSObject+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23BF1D48960F0002D78D /* NSObject+MBProgressHUD.m */; };
+		3D7D23C61D48960F0002D78D /* UIViewController+MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23C11D48960F0002D78D /* UIViewController+MBProgressHUD.m */; };
+		3D7D23C71D48960F0002D78D /* TestHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23C31D48960F0002D78D /* TestHUD.m */; };
+		3D7D23CA1D48961A0002D78D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D23C91D48961A0002D78D /* ViewController.m */; };
 		CBD439DD161793A5F3F465EB /* libPods-MBProgressHUD封装后直接调用.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B90EEEC70D1D895D098909 /* libPods-MBProgressHUD封装后直接调用.a */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +45,6 @@
 		3D7D231E1D40EF3D0002D78D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D7D23201D40EF3D0002D78D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D7D23211D40EF3D0002D78D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D7D23231D40EF3D0002D78D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D7D23241D40EF3D0002D78D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3D7D23271D40EF3D0002D78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D7D23291D40EF3D0002D78D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D7D232C1D40EF3D0002D78D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,14 +55,16 @@
 		3D7D233E1D40EF3D0002D78D /* MBProgressHUD封装后直接调用UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MBProgressHUD封装后直接调用UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7D23421D40EF3D0002D78D /* MBProgressHUD_______UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD_______UITests.m"; sourceTree = "<group>"; };
 		3D7D23441D40EF3D0002D78D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3D7D235D1D41116E0002D78D /* UIViewController+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBProgressHUD.h"; sourceTree = "<group>"; };
-		3D7D235E1D41116E0002D78D /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
-		3D7D23601D4111840002D78D /* NSObject+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MBProgressHUD.h"; sourceTree = "<group>"; };
-		3D7D23611D4111840002D78D /* NSObject+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MBProgressHUD.m"; sourceTree = "<group>"; };
-		3D7D23631D41119A0002D78D /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
-		3D7D23641D41119A0002D78D /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
-		3D7D23661D45D9F80002D78D /* TestNSOjectHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNSOjectHUD.h; sourceTree = "<group>"; };
-		3D7D23671D45D9F80002D78D /* TestNSOjectHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNSOjectHUD.m; sourceTree = "<group>"; };
+		3D7D23BC1D48960F0002D78D /* MBProgressHUD+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Category.h"; sourceTree = "<group>"; };
+		3D7D23BD1D48960F0002D78D /* MBProgressHUD+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Category.m"; sourceTree = "<group>"; };
+		3D7D23BE1D48960F0002D78D /* NSObject+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MBProgressHUD.h"; sourceTree = "<group>"; };
+		3D7D23BF1D48960F0002D78D /* NSObject+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MBProgressHUD.m"; sourceTree = "<group>"; };
+		3D7D23C01D48960F0002D78D /* UIViewController+MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MBProgressHUD.h"; sourceTree = "<group>"; };
+		3D7D23C11D48960F0002D78D /* UIViewController+MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MBProgressHUD.m"; sourceTree = "<group>"; };
+		3D7D23C21D48960F0002D78D /* TestHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHUD.h; sourceTree = "<group>"; };
+		3D7D23C31D48960F0002D78D /* TestHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHUD.m; sourceTree = "<group>"; };
+		3D7D23C81D48961A0002D78D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3D7D23C91D48961A0002D78D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		45B90EEEC70D1D895D098909 /* libPods-MBProgressHUD封装后直接调用.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBProgressHUD封装后直接调用.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF4CB70D702494AF2173514 /* Pods-MBProgressHUD封装后直接调用.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBProgressHUD封装后直接调用.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBProgressHUD封装后直接调用/Pods-MBProgressHUD封装后直接调用.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,11 +129,11 @@
 		3D7D231C1D40EF3D0002D78D /* MBProgressHUD封装后直接调用 */ = {
 			isa = PBXGroup;
 			children = (
+				3D7D23C81D48961A0002D78D /* ViewController.h */,
+				3D7D23C91D48961A0002D78D /* ViewController.m */,
 				3D7D235C1D41115B0002D78D /* Class */,
 				3D7D23201D40EF3D0002D78D /* AppDelegate.h */,
 				3D7D23211D40EF3D0002D78D /* AppDelegate.m */,
-				3D7D23231D40EF3D0002D78D /* ViewController.h */,
-				3D7D23241D40EF3D0002D78D /* ViewController.m */,
 				3D7D23261D40EF3D0002D78D /* Main.storyboard */,
 				3D7D23291D40EF3D0002D78D /* Assets.xcassets */,
 				3D7D232B1D40EF3D0002D78D /* LaunchScreen.storyboard */,
@@ -172,14 +172,14 @@
 		3D7D235C1D41115B0002D78D /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				3D7D235D1D41116E0002D78D /* UIViewController+MBProgressHUD.h */,
-				3D7D235E1D41116E0002D78D /* UIViewController+MBProgressHUD.m */,
-				3D7D23601D4111840002D78D /* NSObject+MBProgressHUD.h */,
-				3D7D23611D4111840002D78D /* NSObject+MBProgressHUD.m */,
-				3D7D23631D41119A0002D78D /* MBProgressHUD+Category.h */,
-				3D7D23641D41119A0002D78D /* MBProgressHUD+Category.m */,
-				3D7D23661D45D9F80002D78D /* TestNSOjectHUD.h */,
-				3D7D23671D45D9F80002D78D /* TestNSOjectHUD.m */,
+				3D7D23BC1D48960F0002D78D /* MBProgressHUD+Category.h */,
+				3D7D23BD1D48960F0002D78D /* MBProgressHUD+Category.m */,
+				3D7D23BE1D48960F0002D78D /* NSObject+MBProgressHUD.h */,
+				3D7D23BF1D48960F0002D78D /* NSObject+MBProgressHUD.m */,
+				3D7D23C01D48960F0002D78D /* UIViewController+MBProgressHUD.h */,
+				3D7D23C11D48960F0002D78D /* UIViewController+MBProgressHUD.m */,
+				3D7D23C21D48960F0002D78D /* TestHUD.h */,
+				3D7D23C31D48960F0002D78D /* TestHUD.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -373,13 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D7D23681D45D9F80002D78D /* TestNSOjectHUD.m in Sources */,
-				3D7D23621D4111840002D78D /* NSObject+MBProgressHUD.m in Sources */,
-				3D7D235F1D41116E0002D78D /* UIViewController+MBProgressHUD.m in Sources */,
-				3D7D23251D40EF3D0002D78D /* ViewController.m in Sources */,
+				3D7D23CA1D48961A0002D78D /* ViewController.m in Sources */,
 				3D7D23221D40EF3D0002D78D /* AppDelegate.m in Sources */,
 				3D7D231F1D40EF3D0002D78D /* main.m in Sources */,
-				3D7D23651D41119A0002D78D /* MBProgressHUD+Category.m in Sources */,
+				3D7D23C61D48960F0002D78D /* UIViewController+MBProgressHUD.m in Sources */,
+				3D7D23C71D48960F0002D78D /* TestHUD.m in Sources */,
+				3D7D23C41D48960F0002D78D /* MBProgressHUD+Category.m in Sources */,
+				3D7D23C51D48960F0002D78D /* NSObject+MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

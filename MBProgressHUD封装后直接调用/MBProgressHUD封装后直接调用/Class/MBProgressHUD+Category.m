@@ -13,14 +13,13 @@
 
 +(void)showLoadingInView:(UIView*)superView
 {
-    [self showLoadingWithTitle:@"加载中" withSuperView:superView afterDelay:0];
+    [self showLoadingWithTitle:@"加载中" withSuperView:superView];
 }
 
 +(void)showLoadingInView:(UIView *)superView title:(NSString*)title
 {
-    [self showLoadingWithTitle:title withSuperView:superView afterDelay:0];
+    [self showLoadingWithTitle:title withSuperView:superView];
 }
-
 
 
 +(void)showHUDInView:(UIView *)superView title:(NSString*)title
@@ -29,9 +28,7 @@
 }
 
 
-
-
-+ (void)showLoadingWithTitle:(NSString *)title withSuperView:(UIView *)view afterDelay:(NSTimeInterval)delay
++ (void)showLoadingWithTitle:(NSString *)title withSuperView:(UIView *)view
 {
     UIView *showInView = nil;
     if (view) {
@@ -43,18 +40,12 @@
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:showInView animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
-    hud.margin = 10;
     hud.labelText = title;
     hud.labelColor = [UIColor whiteColor];
     hud.labelFont = [UIFont systemFontOfSize:14];
     hud.removeFromSuperViewOnHide = YES;
     hud.color = [UIColor blackColor];
-    if (delay == 0) {
-        delay = 2;
-    }
     hud.tag=HUDTAG;
-    [hud hide:YES afterDelay:delay];
-    
 }
 
 
@@ -77,12 +68,9 @@
     hud.labelFont = [UIFont systemFontOfSize:14];
     hud.removeFromSuperViewOnHide = YES;
     hud.color = [UIColor blackColor];
-    if (delay == 0) {
-        delay = 2;
-    }
     hud.tag=HUDTAG;
     [hud hide:YES afterDelay:delay];
-    
+
 }
 
 
@@ -96,8 +84,7 @@
     {
         view=(MBProgressHUD *)[superView viewWithTag:HUDTAG];
     }
-
-    [view hide:NO];
+    [view hide:YES afterDelay:0];
     
 }
 @end

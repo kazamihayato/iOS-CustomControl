@@ -1,8 +1,8 @@
 //
 //  ViewController.h
-//  MBProgressHUD封装后直接调用
+//  MBProgressHUD类别分装
 //
-//  Created by 庄BB的MacBook on 16/7/21.
+//  Created by 庄BB的MacBook on 16/7/25.
 //  Copyright © 2016年 BBFC. All rights reserved.
 //
 

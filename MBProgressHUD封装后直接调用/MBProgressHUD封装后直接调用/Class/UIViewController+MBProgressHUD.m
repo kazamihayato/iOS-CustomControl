@@ -21,7 +21,7 @@
 
 - (void)hide
 {
-    [MBProgressHUD hideHUDInView:self.view];
+    [MBProgressHUD hideHUDWithView:self.view];
 }
 
 - (void)showHUDWithTitle:(NSString*)title

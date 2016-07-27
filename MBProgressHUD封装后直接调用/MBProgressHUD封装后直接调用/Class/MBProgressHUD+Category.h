@@ -16,8 +16,7 @@
 
 +(void)showHUDInView:(UIView *)superView title:(NSString*)title;
 
-
-+(void)hideHUDInView:(UIView*)superView;
++(void)hideHUDWithView:(UIView*)superView;
 
 
 @end

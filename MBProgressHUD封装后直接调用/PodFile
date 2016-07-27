@@ -1,0 +1,2 @@
+platform:ios,"7.0"
+target "MBProgressHUD封装后直接调用" do pod "MBProgressHUD","~>0.9.2"end 

@@ -12,7 +12,7 @@
 
 - (void)hide
 {
-    [MBProgressHUD hideHUDInView:nil];
+    [MBProgressHUD hideHUDWithView:nil];
 }
 
 - (void)showHUDWindowWithTitle:(NSString*)title
