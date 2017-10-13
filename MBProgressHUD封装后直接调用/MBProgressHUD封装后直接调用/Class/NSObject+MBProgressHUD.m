@@ -7,16 +7,16 @@
 //
 
 #import "NSObject+MBProgressHUD.h"
-#import "MBProgressHUD+Category.h"
+#import "MBHUD.h"
 @implementation NSObject (MBProgressHUD)
 
 - (void)hide
 {
-    [MBProgressHUD hideHUDWithView:nil];
+    [MBHUD hideHUDInView:nil];
 }
 
 - (void)showHUDWindowWithTitle:(NSString*)title
 {
-    [MBProgressHUD showHUDInView:nil title:title];
+    [MBHUD showHUDWithTitle:title InView:nil];
 }
 @end

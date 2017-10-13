@@ -14,6 +14,8 @@
 
 - (void)showLoadingWithTitle:(NSString*)title;
 
+- (void)showLoadingWithTitle:(NSString *)title delay:(NSTimeInterval)delay;
+
 - (void)hide;
 
 - (void)showHUDWithTitle:(NSString*)title;

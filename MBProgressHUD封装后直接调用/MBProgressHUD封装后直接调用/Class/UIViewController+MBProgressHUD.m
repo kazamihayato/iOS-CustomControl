@@ -7,25 +7,30 @@
 //
 
 #import "UIViewController+MBProgressHUD.h"
-#import "MBProgressHUD+Category.h"
+#import "MBHUD.h"
 @implementation UIViewController (MBProgressHUD)
 - (void)showLoading
 {
-    [MBProgressHUD showLoadingInView:self.view];
+    [MBHUD showLoadingInView:self.view];
 }
 
 - (void)showLoadingWithTitle:(NSString*)title
 {
-    [MBProgressHUD showLoadingInView:self.view title:title];
+    [MBHUD showLoadingInView:self.view title:title];
+}
+
+- (void)showLoadingWithTitle:(NSString *)title delay:(NSTimeInterval)delay
+{
+    [MBHUD showLoadingInView:self.view title:title delay:delay];
 }
 
 - (void)hide
 {
-    [MBProgressHUD hideHUDWithView:self.view];
+    [MBHUD hideHUDInView:self.view];
 }
 
 - (void)showHUDWithTitle:(NSString*)title
 {
-    [MBProgressHUD showHUDInView:self.view title:title];
+    [MBHUD showHUDWithTitle:title InView:self.view];
 }
 @end
