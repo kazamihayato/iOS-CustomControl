@@ -10,21 +10,17 @@
 #import "BaseViewController.h"
 #import "HMSegmentedControl.h"
 
-
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-#define WEAK_SELF __weak typeof(self)weakSelf = self
-#define STRONG_SELF __strong typeof(weakSelf)self = weakSelf
-
+#define WEAK_SELF     __weak   typeof(self)weakSelf = self
+#define STRONG_SELF   __strong typeof(weakSelf)self = weakSelf
 
 @interface BasePageViewController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
-
 @property(nonatomic,strong)UIPageViewController * pageView;
 @property(nonatomic,assign)CGRect                 frame;
 @property(nonatomic,strong)HMSegmentedControl   * segment;
 @property(nonatomic,assign)NSInteger              index;
 @end
-
 
 @implementation BasePageViewController
 {
@@ -34,7 +30,7 @@
 {
     self=[super init];
     if (self) {
-        self.frame       = CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT);
+        self.frame = CGRectMake(0, 40, SCREEN_WIDTH, SCREEN_HEIGHT);
     }
     return self;
 }
@@ -42,9 +38,7 @@
 {
     self=[super init];
     if (self) {
-        
-        self.frame       = frame;
-        
+        self.frame = frame;
     }
     return self;
 }
@@ -54,8 +48,8 @@
     [super viewDidLoad];
     [self constructData];
     [self configSegment];
-    [self createPageView];
-    [self createSegment];
+    [self.view addSubview:self.pageView.view];
+    [self.view addSubview:self.segment];
 }
 -(void)constructData
 {
@@ -65,52 +59,70 @@
 {
     
 }
--(void)createPageView
+-(UIPageViewController*)pageView
 {
-    _pageView=[[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    _pageView.view.frame = self.frame;
-    _pageView.dataSource = self;
-    _pageView.delegate   = self;
-    [self addChildViewController:_pageView];
-    [self.view addSubview:_pageView.view];
-    [_pageView didMoveToParentViewController:self];
+    if (self.controllers.count==0) {
+        return nil;
+    }
     
-    BaseViewController*firstVC=self.controllers[0];
-    [_pageView setViewControllers:@[firstVC] direction:UIPageViewControllerNavigationDirectionReverse animated:NO completion:^(BOOL finished) {
-        firstVC.page=0;
-    }];
-}
--(void)createSegment
-{
-    _segment=[[HMSegmentedControl alloc] initWithSectionTitles:self.titles];
-    _segment.frame=CGRectMake(0, _pageView.view.frame.origin.y-40, SCREEN_WIDTH, 40);
-    _segment.titleTextAttributes         = self.titleTextAttributes;
-    _segment.selectedTitleTextAttributes = self.selectedTitleTextAttributes;
-    _segment.selectionIndicatorColor     = [UIColor redColor];
-    _segment.selectionIndicatorLocation  = HMSegmentedControlSelectionIndicatorLocationDown;
-    _segment.segmentWidthStyle           = HMSegmentedControlSegmentWidthStyleFixed;
-    _segment.selectionStyle              = HMSegmentedControlSelectionStyleTextWidthStripe;
-    _segment.selectionIndicatorHeight    = 2.0f;
-    _segment.borderType                  = self.boardType;
-    _segment.borderColor                 = [UIColor grayColor];
-    _segment.borderWidth                 = 0.5f;
-    
-    WEAK_SELF;
-    [_segment setIndexChangeBlock:^(NSInteger index) {
-        STRONG_SELF;
-        BaseViewController*vc=self.controllers[index];
-        [weakSelf.pageView setViewControllers:@[vc] direction:index>_lastIndex? UIPageViewControllerNavigationDirectionForward:UIPageViewControllerNavigationDirectionReverse animated:NO completion:^(BOOL finished)
-         {
-             vc.page=index;
-         }];
+    if (!_pageView) {
+        _pageView=[[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        _pageView.view.frame = self.frame;
+        _pageView.dataSource = self;
+        _pageView.delegate   = self;
+        [self addChildViewController:_pageView];
+        [_pageView didMoveToParentViewController:self];
         
-    }];
-    [self.view addSubview:_segment];
-    
+        BaseViewController*firstVC=self.controllers[0];
+        [_pageView setViewControllers:@[firstVC] direction:UIPageViewControllerNavigationDirectionReverse animated:NO completion:^(BOOL finished) {
+            firstVC.page=0;
+        }];
+    }
+    return _pageView;
+}
+
+-(HMSegmentedControl*)segment
+{
+    if (self.controllers.count==0 || self.titles.count==0) {
+        return nil;
+    }
+    if (!_segment) {
+        _segment=[[HMSegmentedControl alloc] initWithSectionTitles:self.titles];
+        _segment.frame=CGRectMake(0, _pageView.view.frame.origin.y-40, SCREEN_WIDTH, 40);
+        _segment.titleTextAttributes         = self.titleTextAttributes;
+        _segment.selectedTitleTextAttributes = self.selectedTitleTextAttributes;
+        _segment.selectionIndicatorColor     = [UIColor redColor];
+        _segment.selectionIndicatorLocation  = HMSegmentedControlSelectionIndicatorLocationDown;
+        _segment.segmentWidthStyle           = HMSegmentedControlSegmentWidthStyleFixed;
+        _segment.selectionStyle              = HMSegmentedControlSelectionStyleTextWidthStripe;
+        _segment.selectionIndicatorHeight    = 2.0f;
+        _segment.borderType                  = self.boardType;
+        _segment.borderColor                 = [UIColor grayColor];
+        _segment.borderWidth                 = 0.5f;
+        
+        WEAK_SELF;
+        [_segment setIndexChangeBlock:^(NSInteger index) {
+            STRONG_SELF;
+            BaseViewController*vc=self.controllers[index];
+            [weakSelf.pageView setViewControllers:@[vc] direction:index>_lastIndex? UIPageViewControllerNavigationDirectionForward:UIPageViewControllerNavigationDirectionReverse animated:NO completion:^(BOOL finished)
+             {
+                 vc.page=index;
+             }];
+            
+        }];
+    }
+    return _segment;
 }
 - (void)selectPageWith:(NSInteger)index
 {
-    [_segment setSelectedSegmentIndex:index animated:YES];
+    if (index+1>self.controllers.count)
+    {
+        return;
+    }
+    
+    if (self.segment) {
+        [_segment setSelectedSegmentIndex:index animated:YES];
+    }
 }
 #pragma mark-UIPageViewDataSource
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
@@ -144,7 +156,7 @@
 {
     if (completed)
     {
-        BaseViewController*vc=(BaseViewController*)pageViewController.viewControllers[0];
+    BaseViewController*vc=(BaseViewController*)pageViewController.viewControllers[0];
         NSInteger currentPage=vc.page;
         vc.page = currentPage;
         
