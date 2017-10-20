@@ -16,7 +16,6 @@
 @property(nonatomic,assign)NSInteger              boardType;
 
 - (instancetype)initWithPageViewFrame:(CGRect)frame;
-
 /**
    添加分页
  */
@@ -28,7 +27,6 @@
 
 /**
  跳转至某页
-
  @param index 
  */
 - (void) selectPageWith:(NSInteger)index;
